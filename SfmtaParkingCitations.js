@@ -17,13 +17,19 @@ d3.csv(citationDataSource).then(function(citationDataCSV) {
             // console.log(citationDataCSV[i].FineAmount)
             yearRunningSum += parseFloat(citationDataCSV[i].FineAmount)
         }
-
-        // console.log(citationDataCSV[i].CitationNumber)
-        // console.log(i)
     }
-    console.log(yearRunningSum)
+    console.log(formatter.format(yearRunningSum))
 
 });
+
+
+
+// number formatter to return citation Sum as a number.
+var formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+
 
 
 
